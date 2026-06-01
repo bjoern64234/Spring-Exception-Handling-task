@@ -1,8 +1,10 @@
 package de.neuefische.springexceptionhandlingtask.car;
 
+import de.neuefische.springexceptionhandlingtask.exeptions.ErrorMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -24,7 +26,7 @@ public class CarController {
 
     @ExceptionHandler(NoSuchElementException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String handleNoSuchElementException(NoSuchElementException e) {
-        return e.getMessage();
+    public ErrorMessage handleNoSuchElementException(NoSuchElementException e) {
+        return new ErrorMessage(e.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
     }
 }
