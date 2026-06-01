@@ -15,4 +15,10 @@ public class GlobalExceptionHandler {
     public ErrorMessage handleIllegalArgumentException(IllegalArgumentException e) {
         return new ErrorMessage(e.getMessage(), HttpStatus.FORBIDDEN.value(), LocalDateTime.now());
     }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ErrorMessage handleException() {
+        return new ErrorMessage("Ooops! Something went wrong.", HttpStatus.INTERNAL_SERVER_ERROR.value(), LocalDateTime.now());
+    }
 }
