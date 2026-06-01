@@ -1,0 +1,8 @@
+### Get all existing cars
+GET {{localhost}}:{{port}}/api/car
+
+### Get car by porsche
+GET {{localhost}}:{{port}}/api/cars/porsche
+
+### Get car by brand
+GET {{localhost}}:{{port}}/api/cars/vw
