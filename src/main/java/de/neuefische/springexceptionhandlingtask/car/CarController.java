@@ -1,5 +1,6 @@
-package de.neuefische.springexceptionhandlingtask;
+package de.neuefische.springexceptionhandlingtask.car;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.NoSuchElementException;
@@ -19,5 +20,11 @@ public class CarController {
     @GetMapping
     String getAllCars() {
         throw new NoSuchElementException("No Cars found");
+    }
+
+    @ExceptionHandler(NoSuchElementException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public String handleNoSuchElementException(NoSuchElementException e) {
+        return e.getMessage();
     }
 }

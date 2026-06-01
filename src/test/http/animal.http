@@ -4,5 +4,5 @@ GET {{localhost}}:{{port}}/api/animals
 ### Get animal by dog
 GET {{localhost}}:{{port}}/api/animals/dog
 
-### Get car by species
+### Get animal by species
 GET {{localhost}}:{{port}}/api/animals/cat
